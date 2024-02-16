@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { MdDeleteOutline } from "react-icons/md";
+import NotesList from "./NotesList";
 
-const Note = () => {
+const Note = ({ id, text, date }) => {
   return (
-    <NoteContainer>
-      <p>testing note first note</p>
+    <NoteContainer className="note">
+      <p>{text}</p>
       <div className="noteFooter">
-        <small>2/15/2024</small>
+        <small>{date}</small>
         <MdDeleteOutline className="deleteIcon" size="1.1em" />
       </div>
     </NoteContainer>

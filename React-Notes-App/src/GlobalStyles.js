@@ -96,8 +96,11 @@ video {
 }
 
 :root {
- 
+  --color-grey: rgba(60, 68, 76, 0.85);
+  --color-white: rgba(255, 255, 255, 1);
+  --b-radius1:5px;
       font-size:62.5%;
+    
     }
 
     
@@ -137,7 +140,7 @@ input {
         display: block;
     }
     body {
-  
+      font-family: 'Roboto', sans-serif;
     }
     ol, ul {
         list-style: none;
