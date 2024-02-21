@@ -128,6 +128,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body{
+  background: linear-gradient(to bottom, #ff9966, #ff5e62);
+}
+
 input {
         &:disabled {
             cursor: not-allowed;
