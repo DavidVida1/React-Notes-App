@@ -1,11 +1,18 @@
 import styled from "styled-components";
 import AddNote from "./AddNote";
+import SearchBar from "./SearchBar";
 import Note from "./Note";
 
-const NotesList = ({ notes, handleAddNote, handleDeleteNote }) => {
+const NotesList = ({
+  notes,
+  handleAddNote,
+  handleDeleteNote,
+  handleSearchNote,
+}) => {
   return (
     <NotesListContainer>
-      <h1 className="title">Notes [{notes.length}]</h1>
+      <h1 className="title">[{notes.length}]Notes </h1>
+      <SearchBar handleSearchNote={handleSearchNote} />
       {notes.map((note) => (
         <Note
           key={note.id}

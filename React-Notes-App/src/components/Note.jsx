@@ -15,7 +15,7 @@ const Note = ({ id, text, date, handleDeleteNote }) => {
         <MdDeleteOutline className="deleteIconOutline" size="1.1em" />
         <MdDelete
           className="deleteIcon"
-          size="1.1em"
+          size="1.3em"
           onClick={() => handleDeleteNote(id)}
         />
       </div>
@@ -36,6 +36,7 @@ const NoteContainer = styled.section`
 
     & .deleteIcon {
       display: none;
+      cursor: pointer;
     }
   }
 `;

@@ -4,11 +4,13 @@ import NotesList from "./components/NotesList";
 import GlobalStyles from "./GlobalStyles";
 import Header from "./Header";
 import "./style.css";
+
 import styled from "styled-components";
 import Notes from "./components/NotesClass";
 import watermark from "./assets/Notepad_icon.svg.png";
 
 const App = () => {
+  const [searchText, setSearchText] = useState("");
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
@@ -58,10 +60,10 @@ const App = () => {
     <AppContainer>
       <Header />
       <GlobalStyles />
-
       <NotesList
         className="wrapper"
         notes={notes}
+        handleSearchNote={setSearchText}
         handleAddNote={addNote}
         handleDeleteNote={deleteNote}
       />
