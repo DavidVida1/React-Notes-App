@@ -106,7 +106,7 @@ const AppContainer = styled.section`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    bottom: -40px;
+    bottom: 0px;
     right: 40px;
     animation: float 10s ease-in-out infinite;
     z-index: -0;
