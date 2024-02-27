@@ -19,8 +19,8 @@ const NotesList = ({
           /*id={note.id} text={note.text} date={note.date}*/ {...note}
           handleDeleteNote={handleDeleteNote}
         />
-      ))}
-      <AddNote handleAddNote={handleAddNote} />
+      ))}{" "}
+      <AddNote className="addNote" handleAddNote={handleAddNote} />
     </NotesListContainer>
   );
 };
@@ -29,13 +29,17 @@ export default NotesList;
 
 const NotesListContainer = styled.section`
   display: grid;
-  grid-gap: 1rem;
-  background-color: grey;
-  padding: 20px;
-  border-radius: 10px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 1rem;
+  background: var(--color-white2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--b-radius2);
   margin: auto;
   width: 400px;
+  border: 3px solid var(--color-purple);
+  padding: 20px;
 
   & .title {
     color: var(--color-white);
@@ -49,7 +53,7 @@ const NotesListContainer = styled.section`
 
   & .note {
     flex-direction: column;
-    background-color: var(--color-grey);
+    background-color: var(--color-purple);
     border-radius: var(--b-radius1);
     padding: 1rem;
     color: var(--color-white);

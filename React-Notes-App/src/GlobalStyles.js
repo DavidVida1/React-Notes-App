@@ -97,9 +97,16 @@ video {
 
 :root {
   --color-grey: rgba(60, 68, 76, 0.85);
+  --color-grey2: rgba(125, 125, 125, 0.5);
   --color-white: rgba(255, 255, 255, 1);
+  --color-white2: rgba(255, 255, 255, 0.45);
   --color-black: rgba(0, 0, 0, 1);
-  --b-radius1: 10px;
+  --color-purple: #4f417b;
+  --border: #2e2d82;
+  --box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  --b-radius1: 5px;
+  --b-radius2:10px;
       font-size:62.5%;
     
     }
@@ -130,7 +137,6 @@ html {
 }
 
 body{
-  background: linear-gradient(to bottom, #ff9966, #ff5e62);
 }
 
 input {

@@ -19,15 +19,15 @@ const SearchBarContainer = styled.section`
   &.search {
     display: flex;
     align-items: center;
-    background-color: rgb(233, 233, 233);
-    border-radius: 10px;
+    background-color: var(--color-white);
+    border-radius: var(--b-radius1);
     padding: 5px;
     margin-bottom: 1.5em;
   }
 
   &.search input {
     border: none;
-    background-color: rgb(233, 233, 233);
+    background-color: var(--color-white);
     width: 100%;
   }
 

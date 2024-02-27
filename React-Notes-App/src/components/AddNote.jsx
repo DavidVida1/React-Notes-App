@@ -43,28 +43,36 @@ const AddNote = ({ handleAddNote }) => {
 export default AddNote;
 
 const AddNoteContainer = styled.section`
+  box-shadow: inset 0 0 5px black;
+
   &.note.new {
-    background-color: #67d7cc;
+    background-color: var(--color-purple);
   }
 
   & textarea {
     border: none;
     resize: none;
-    background-color: #67d7cc;
+    color: var(--color-white);
+    background-color: var(--color-purple);
+    font-size: 1.5rem;
 
     &:focus {
       outline: none;
+    }
+
+    &::placeholder {
+      color: var(--color-white);
     }
   }
 
   & .saveBtn {
     background-color: var(--color-white);
     border: none;
-    border-radius: 5px;
+    border-radius: var(--b-radius1);
     padding: 5px 10px;
 
     &:hover {
-      background-color: green;
+      background-color: var(--color-white);
       cursor: pointer;
     }
   }

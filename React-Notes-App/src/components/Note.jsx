@@ -7,9 +7,7 @@ import NotesList from "./NotesList";
 const Note = ({ id, text, date, handleDeleteNote }) => {
   return (
     <NoteContainer className="note">
-      <p>
-        ({id} ){text}
-      </p>
+      <p>{text}</p>
       <div className="noteFooter">
         <small>{date}</small>
         <MdDeleteOutline className="deleteIconOutline" size="1.1em" />
@@ -25,6 +23,9 @@ const Note = ({ id, text, date, handleDeleteNote }) => {
 export default Note;
 
 const NoteContainer = styled.section`
+  border: 3px solid var(--border);
+  font-size: 1.5rem;
+
   & .noteFooter {
     & .deleteIconOutline:hover {
       display: none;
