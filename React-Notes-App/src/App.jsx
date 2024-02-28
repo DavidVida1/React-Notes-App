@@ -86,6 +86,8 @@ const AppContainer = styled.section`
 
   & .noteListWrapper {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
   }
 `;

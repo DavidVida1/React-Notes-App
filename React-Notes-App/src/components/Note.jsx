@@ -23,6 +23,7 @@ const NoteContainer = styled.section`
 
   & .noteFooter {
     font-size: 1rem;
+
     & .deleteIcon {
       font-size: var(--font-size1);
       cursor: pointer;

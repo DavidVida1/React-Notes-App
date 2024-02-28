@@ -6,12 +6,6 @@ import { PiStarFourFill } from "react-icons/pi";
 const Background = () => {
   return (
     <BackgroundWrapper>
-      <section className="diamonds">
-        <PiStarFourFill id="diamond1" />
-        <PiStarFourBold id="diamond2" />
-        <PiStarFourBold id="diamond3" />
-      </section>
-
       <section className="stars">
         <PiStarFourFill />
         <PiStarFourBold />
@@ -33,68 +27,6 @@ export default Background;
 const BackgroundWrapper = styled.section`
   width: 100%;
   height: 100%;
-
-  .diamonds {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    color: var(--color-purple2);
-    gap: 10px;
-    bottom: 0px;
-    right: 40px;
-    animation: float 10s ease-in-out infinite;
-
-    #diamond1 {
-      width: 25px;
-      height: 25px;
-      border: 10px solid var(--color-white3);
-      background-color: transparent;
-      border-radius: 5px;
-      rotate: 45deg;
-      position: relative;
-      bottom: 0px;
-      right: 100px;
-      animation: float 5s ease-in-out infinite;
-    }
-
-    #diamond2 {
-      width: 25px;
-      height: 25px;
-      border: 10px solid var(--color-white3);
-      background-color: transparent;
-      border-radius: 5px;
-      rotate: 45deg;
-      position: relative;
-      bottom: 0px;
-      right: 60px;
-      animation: float 4s ease-in-out infinite;
-    }
-    #diamond3 {
-      width: 25px;
-      height: 25px;
-      border: 10px solid var(--color-white3);
-      background-color: transparent;
-      border-radius: 5px;
-      rotate: 45deg;
-      position: relative;
-      bottom: 55px;
-      right: 140px;
-      animation: float 6s ease-in-out infinite;
-    }
-    @keyframes float {
-      0% {
-        transform: translatey(0px);
-      }
-
-      50% {
-        transform: translatey(-20px);
-      }
-
-      100% {
-        transform: translatey(0px);
-      }
-    }
-  }
 
   .stars {
     position: fixed;
