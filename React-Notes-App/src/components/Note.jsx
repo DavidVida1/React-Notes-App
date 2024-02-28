@@ -19,12 +19,12 @@ export default Note;
 
 const NoteContainer = styled.section`
   border-top: 3px solid var(--border-note);
-  font-size: 1.5rem;
+  font-size: var(--font-size1);
 
   & .noteFooter {
     font-size: 1rem;
     & .deleteIcon {
-      font-size: 1.5rem;
+      font-size: var(--font-size1);
       cursor: pointer;
       &:hover {
         border-radius: 100%;

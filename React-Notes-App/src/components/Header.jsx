@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FaUser } from "react-icons/fa";
 import { IoMdAdd } from "react-icons/io";
-import { BsMoonStarsFill } from "react-icons/bs";
+import { FaMoon } from "react-icons/fa";
 
 const Header = ({ handleToggleDarkMode, handleAddNoteList }) => {
   return (
@@ -14,7 +14,7 @@ const Header = ({ handleToggleDarkMode, handleAddNoteList }) => {
         }}
       />
 
-      <BsMoonStarsFill
+      <FaMoon
         className="darkModeToggle"
         onClick={() => {
           handleToggleDarkMode();
@@ -36,19 +36,18 @@ const HeaderWrapper = styled.header`
   width: 100%;
   height: 65px;
   color: var(--color-white);
-  font-size: 3rem;
-  gap: 10px;
+  font-size: var(--font-size2);
   cursor: pointer;
   z-index: 999;
 
   & :hover {
-    scale: 1.1;
+    filter: drop-shadow(0 0 3px var(--color-white));
     transition-timing-function: linear;
-    transition-duration: 1s;
+    transition-duration: 0.3s;
   }
 
   & svg {
-    margin-right: 5px;
+    margin-right: 15px;
   }
 
   & .addListButton:hover {

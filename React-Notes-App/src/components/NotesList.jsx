@@ -17,23 +17,8 @@ const NotesList = ({ noteId, handleDeleteNoteList }) => {
     return [
       {
         id: nanoid(),
-        text: "This is my first note!",
+        text: "Add a Note!",
         date: "04/03/2024",
-      },
-      {
-        id: nanoid(),
-        text: "This is my second note!",
-        date: "05/03/2024",
-      },
-      {
-        id: nanoid(),
-        text: "This is my third note!",
-        date: "06/03/2024",
-      },
-      {
-        id: nanoid(),
-        text: "This is my fourth note!",
-        date: "07/03/2024",
       },
     ];
   });
@@ -68,7 +53,7 @@ const NotesList = ({ noteId, handleDeleteNoteList }) => {
   }, [notes]);
 
   return (
-    <NotesListContainer>
+    <NotesListContainer id={noteId}>
       <FaTimes
         className="deleteBtn"
         onClick={() => {
@@ -114,7 +99,7 @@ const NotesListContainer = styled.section`
   & .deleteBtn {
     position: absolute;
     margin: 20px;
-    font-size: 1.5rem;
+    font-size: var(--font-size1);
     right: 0;
     top: 0;
     cursor: pointer;
@@ -126,7 +111,7 @@ const NotesListContainer = styled.section`
 
   & .title {
     color: var(--color-white);
-    font-size: 3rem;
+    font-size: var(--font-size2);
   }
   & section,
   & section .noteFooter {

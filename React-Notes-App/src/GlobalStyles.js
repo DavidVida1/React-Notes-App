@@ -96,6 +96,8 @@ video {
 }
 
 :root {
+  --font-size1:1.5rem;
+  --font-size2:3rem;
   --color-grey: rgba(60, 68, 76, 0.85);
   --color-grey2: rgba(125, 125, 125, 0.5);
   --color-white: rgba(255, 255, 255, 1);
