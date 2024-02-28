@@ -22,7 +22,7 @@ const SearchBarContainer = styled.section`
     background-color: var(--color-white);
     border-radius: var(--b-radius1);
     padding: 5px;
-    margin-bottom: 1.5em;
+    margin-bottom: 1rem;
   }
 
   &.search input {

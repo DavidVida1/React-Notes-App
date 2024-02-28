@@ -23,7 +23,7 @@ const Note = ({ id, text, date, handleDeleteNote }) => {
 export default Note;
 
 const NoteContainer = styled.section`
-  border: 3px solid var(--border);
+  border-top: 3px solid var(--border-note);
   font-size: 1.5rem;
 
   & .noteFooter {

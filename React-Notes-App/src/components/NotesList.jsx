@@ -29,6 +29,7 @@ export default NotesList;
 
 const NotesListContainer = styled.section`
   display: grid;
+  position: relative;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 1rem;
   background: var(--color-white2);
@@ -38,8 +39,9 @@ const NotesListContainer = styled.section`
   border-radius: var(--b-radius2);
   margin: auto;
   width: 400px;
-  border: 3px solid var(--color-purple);
+  border: 3px solid var(--border-noteList);
   padding: 20px;
+  z-index: 999;
 
   & .title {
     color: var(--color-white);

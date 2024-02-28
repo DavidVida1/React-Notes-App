@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { FaUser } from "react-icons/fa";
 import { IoMdAdd } from "react-icons/io";
 import { BsMoonStarsFill } from "react-icons/bs";
-import { BsMoonStars } from "react-icons/bs";
 
 const Header = ({ handleToggleDarkMode }) => {
   return (
@@ -25,6 +24,7 @@ const Header = ({ handleToggleDarkMode }) => {
 export default Header;
 
 const HeaderWrapper = styled.header`
+  position: relative;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -34,6 +34,7 @@ const HeaderWrapper = styled.header`
   font-size: 3rem;
   gap: 10px;
   cursor: pointer;
+  z-index: 999;
 
   & :hover {
     scale: 1.1;

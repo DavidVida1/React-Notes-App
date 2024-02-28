@@ -43,17 +43,15 @@ const AddNote = ({ handleAddNote }) => {
 export default AddNote;
 
 const AddNoteContainer = styled.section`
-  box-shadow: inset 0 0 5px black;
-
   &.note.new {
-    background-color: var(--color-purple);
+    background-color: var(--color-purple2);
   }
 
   & textarea {
     border: none;
     resize: none;
     color: var(--color-white);
-    background-color: var(--color-purple);
+    background-color: transparent;
     font-size: 1.5rem;
 
     &:focus {
