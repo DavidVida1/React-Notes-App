@@ -95,13 +95,14 @@ const NotesListContainer = styled.section`
   border: 3px solid var(--border-noteList);
   padding: 20px;
   z-index: 999;
+  resize: both;
+  overflow: hidden;
 
   & .deleteBtn {
     position: absolute;
-    margin: 20px;
     font-size: var(--font-size1);
-    right: 0;
-    top: 0;
+    right: 20px;
+    top: 20px;
     cursor: pointer;
     &:hover {
       border-radius: 100%;

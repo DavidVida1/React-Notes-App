@@ -37,13 +37,13 @@ const HeaderWrapper = styled.header`
   height: 65px;
   color: var(--color-white);
   font-size: var(--font-size2);
-  cursor: pointer;
   z-index: 999;
 
   & :hover {
     filter: drop-shadow(0 0 3px var(--color-white));
     transition-timing-function: linear;
     transition-duration: 0.3s;
+    cursor: pointer;
   }
 
   & svg {
