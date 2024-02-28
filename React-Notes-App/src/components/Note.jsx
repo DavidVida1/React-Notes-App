@@ -1,8 +1,5 @@
 import styled from "styled-components";
 import { MdDeleteOutline } from "react-icons/md";
-import { MdDelete } from "react-icons/md";
-
-import NotesList from "./NotesList";
 
 const Note = ({ id, text, date, handleDeleteNote }) => {
   return (
@@ -10,10 +7,8 @@ const Note = ({ id, text, date, handleDeleteNote }) => {
       <p>{text}</p>
       <div className="noteFooter">
         <small>{date}</small>
-        <MdDeleteOutline className="deleteIconOutline" size="1.1em" />
-        <MdDelete
+        <MdDeleteOutline
           className="deleteIcon"
-          size="1.3em"
           onClick={() => handleDeleteNote(id)}
         />
       </div>
@@ -27,17 +22,14 @@ const NoteContainer = styled.section`
   font-size: 1.5rem;
 
   & .noteFooter {
-    & .deleteIconOutline:hover {
-      display: none;
-
-      & ~ .deleteIcon {
-        display: block;
-      }
-    }
-
+    font-size: 1rem;
     & .deleteIcon {
-      display: none;
+      font-size: 1.5rem;
       cursor: pointer;
+      &:hover {
+        border-radius: 100%;
+        filter: drop-shadow(0 0 3px var(--color-white));
+      }
     }
   }
 `;

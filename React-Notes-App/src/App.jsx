@@ -3,89 +3,69 @@ import { nanoid } from "nanoid";
 import NotesList from "./components/NotesList";
 import GlobalStyles from "./GlobalStyles";
 import Header from "./components/Header";
-import "./style.css";
 import styled from "styled-components";
-import { PiStarFourBold } from "react-icons/pi";
-import { PiStarFourFill } from "react-icons/pi";
 import Background from "./components/Background";
 
 const App = () => {
-  const [searchText, setSearchText] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
-  const [notes, setNotes] = useState(() => {
-    const savedNotes = JSON.parse(localStorage.getItem("react-note-app-data"));
-    if (savedNotes) {
-      return savedNotes;
+  /***************DarkMode *************************/
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedDarkMode = localStorage.getItem("dark-mode");
+    if (savedDarkMode) {
+      return savedDarkMode;
     }
-
-    return [
-      {
-        id: nanoid(),
-        text: "This is my first note!",
-        date: "04/03/2024",
-      },
-      {
-        id: nanoid(),
-        text: "This is my second note!",
-        date: "05/03/2024",
-      },
-      {
-        id: nanoid(),
-        text: "This is my third note!",
-        date: "06/03/2024",
-      },
-      {
-        id: nanoid(),
-        text: "This is my fourth note!",
-        date: "07/03/2024",
-      },
-    ];
+    return false;
+  });
+  /*************** Toggle DarkMode *************************/
+  const toggleDarkMode = () => {
+    setDarkMode((darkMode) => !darkMode);
+    localStorage.setItem("dark-mode", !darkMode);
+  };
+  /***************NoteList Array *************************/
+  const [notesList, setNotesList] = useState(() => {
+    const savedNoteList = JSON.parse(localStorage.getItem("note-list"));
+    if (savedNoteList) {
+      return savedNoteList;
+    }
+    return [`note-${nanoid()}`];
   });
 
-  /***************Adds Note*************/
-  const addNote = (text) => {
-    const date = new Date();
-    const newNote = {
-      id: nanoid(),
-      text: text.trim(),
-      date: date.toLocaleDateString(),
-    };
-    const newNotes = [...notes, newNote];
-    setNotes(newNotes);
-
-    console.log(newNote.text);
+  /***************Adds NoteList************************/
+  const addNoteList = () => {
+    setNotesList([...notesList, `note-${nanoid()}`]);
   };
-
-  /***************Deletes Note*************/
-  const deleteNote = (id) => {
-    /*filter returns an array*/
-
-    const newNotes = notes.filter((note) => {
-      return note.id !== id;
+  /***************Delete NoteList************************/
+  const deleteNoteList = (id) => {
+    const newNotes = notesList.filter((noteList) => {
+      return noteList !== id;
     });
-    setNotes(newNotes);
+    setNotesList(newNotes);
   };
 
-  /*************** Saving LocalStorage *************/
+  /***************Saving NoteList************************/
   useEffect(() => {
-    localStorage.setItem("react-note-app-data", JSON.stringify(notes));
-  }, [notes]);
+    localStorage.setItem(`note-list`, JSON.stringify(notesList));
+  }, [notesList]);
 
   return (
-    <AppContainer className={`${darkMode && "darkMode"}`}>
-      <Header handleToggleDarkMode={setDarkMode} />
-      <GlobalStyles />
-      <NotesList
-        className="wrapper"
-        notes={notes.filter((note) =>
-          note.text.toLowerCase().includes(searchText)
-        )}
-        handleSearchNote={setSearchText}
-        handleAddNote={addNote}
-        handleDeleteNote={deleteNote}
-      />
-      <Background />
-    </AppContainer>
+    <>
+      <AppContainer className={`${darkMode && "darkMode"}`}>
+        <Header
+          handleToggleDarkMode={toggleDarkMode}
+          handleAddNoteList={addNoteList}
+        />
+        <GlobalStyles />
+        <section className="noteListWrapper">
+          {notesList.map((noteList) => (
+            <NotesList
+              key={noteList}
+              noteId={noteList}
+              handleDeleteNoteList={deleteNoteList}
+            />
+          ))}
+        </section>
+        <Background />
+      </AppContainer>
+    </>
   );
 };
 
@@ -100,8 +80,11 @@ const AppContainer = styled.section`
     background: linear-gradient(
       180deg,
       rgba(2, 0, 36, 1) 0%,
-      rgba(2, 0, 36, 1) 66%,
-      rgba(230, 173, 255, 1) 100%
+      rgba(2, 0, 36, 0.8) 100%
     );
+  }
+
+  & .noteListWrapper {
+    display: flex;
   }
 `;

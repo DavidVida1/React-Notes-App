@@ -4,16 +4,21 @@ import { FaUser } from "react-icons/fa";
 import { IoMdAdd } from "react-icons/io";
 import { BsMoonStarsFill } from "react-icons/bs";
 
-const Header = ({ handleToggleDarkMode }) => {
+const Header = ({ handleToggleDarkMode, handleAddNoteList }) => {
   return (
     <HeaderWrapper>
-      <IoMdAdd className="addListButton" />
+      <IoMdAdd
+        className="addListButton"
+        onClick={() => {
+          handleAddNoteList();
+        }}
+      />
 
       <BsMoonStarsFill
         className="darkModeToggle"
-        onClick={() =>
-          handleToggleDarkMode((previousDarkMode) => !previousDarkMode)
-        }
+        onClick={() => {
+          handleToggleDarkMode();
+        }}
       />
 
       <FaUser className="loginButton" />

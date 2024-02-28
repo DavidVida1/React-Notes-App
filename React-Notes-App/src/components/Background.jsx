@@ -32,10 +32,10 @@ export default Background;
 
 const BackgroundWrapper = styled.section`
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   .diamonds {
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: column;
     color: var(--color-purple2);
@@ -97,7 +97,7 @@ const BackgroundWrapper = styled.section`
   }
 
   .stars {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -106,7 +106,7 @@ const BackgroundWrapper = styled.section`
   }
 
   .stars svg {
-    position: absolute;
+    position: fixed;
     display: block;
     width: 20px;
     height: 20px;

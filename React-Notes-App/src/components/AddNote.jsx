@@ -43,6 +43,7 @@ const AddNote = ({ handleAddNote }) => {
 export default AddNote;
 
 const AddNoteContainer = styled.section`
+  border: 3px solid var(--color-purple2);
   &.note.new {
     background-color: var(--color-purple2);
   }
@@ -70,8 +71,7 @@ const AddNoteContainer = styled.section`
     padding: 5px 10px;
 
     &:hover {
-      background-color: var(--color-white);
-      cursor: pointer;
+      filter: drop-shadow(0 0 3px var(--color-white));
     }
   }
 `;
