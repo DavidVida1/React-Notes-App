@@ -8,21 +8,23 @@ const Header = ({ handleToggleDarkMode, handleAddNoteList }) => {
   return (
     <HeaderWrapper>
       <section className="diamonds">
-        <IoMdAdd
-          id="diamond1"
-          onClick={() => {
-            handleAddNoteList();
-          }}
-        />
-
-        <FaMoon
-          id="diamond2"
-          onClick={() => {
-            handleToggleDarkMode();
-          }}
-        />
-
-        <FaUser id="diamond3" />
+        <div id="diamond1">
+          <IoMdAdd
+            onClick={() => {
+              handleAddNoteList();
+            }}
+          />
+        </div>
+        <div id="diamond2">
+          <FaMoon
+            onClick={() => {
+              handleToggleDarkMode();
+            }}
+          />
+        </div>
+        <div id="diamond3">
+          <FaUser />
+        </div>
       </section>
     </HeaderWrapper>
   );
@@ -48,6 +50,7 @@ const HeaderWrapper = styled.header`
     right: 30px;
 
     #diamond1 {
+      display: flex;
       width: 25px;
       height: 25px;
       border: 10px solid var(--color-white3);
@@ -58,6 +61,11 @@ const HeaderWrapper = styled.header`
       top: 45px;
       right: 40px;
       animation: float 5s ease-in-out infinite;
+
+      & svg {
+        rotate: -45deg;
+        align-self: center;
+      }
     }
 
     #diamond2 {
@@ -71,6 +79,12 @@ const HeaderWrapper = styled.header`
       top: 20px;
       right: 25px;
       animation: float 4s ease-in-out infinite;
+      & svg {
+        position: absolute;
+        font-size: 2.3rem;
+        rotate: -45deg;
+        align-self: center;
+      }
     }
     #diamond3 {
       width: 25px;
@@ -83,14 +97,28 @@ const HeaderWrapper = styled.header`
       top: 50px;
       right: 15px;
       animation: float 6s ease-in-out infinite;
+
+      & svg {
+        position: absolute;
+        font-size: 2rem;
+        right: 0px;
+        bottom: 11px;
+        left: 5px;
+        top: 8px;
+        rotate: 45deg;
+        align-self: center;
+      }
     }
 
-    & :hover {
-      filter: drop-shadow(0 0 3px var(--color-white));
+    & div:hover {
       box-shadow: 0 0 10px var(--color-white);
       transition-timing-function: linear;
       transition-duration: 0.3s;
       cursor: pointer;
+
+      & svg {
+        filter: drop-shadow(0 0 3px var(--color-white));
+      }
     }
     @keyframes float {
       0% {

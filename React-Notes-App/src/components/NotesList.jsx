@@ -52,6 +52,21 @@ const NotesList = ({ noteId, handleDeleteNoteList }) => {
     localStorage.setItem(`note-data-${noteId}`, JSON.stringify(notes));
   }, [notes]);
 
+  /*************** Change text title*************/
+  const [editEnabled, setEditEnabled] = useState(true);
+  const [title, setTitle] = useState("");
+
+  const handleChange = (event) => {
+    setTitle(event.target.value);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      console.log("do validate");
+      setEditEnabled(false);
+    }
+  };
+
   return (
     <NotesListContainer id={noteId}>
       <FaTimes
@@ -60,7 +75,20 @@ const NotesList = ({ noteId, handleDeleteNoteList }) => {
           handleDeleteNoteList(noteId);
         }}
       />
-      <h1 className="title">[{notes.length}]Notes </h1>
+      {editEnabled ? (
+        <input
+          type="text"
+          value={title}
+          placeholder="Notepad Title"
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+        />
+      ) : (
+        <h1 className="title" onDoubleClick={() => setEditEnabled(true)}>
+          [{notes.length}]{title}
+        </h1>
+      )}
+
       <SearchBar handleSearchNote={setSearchText} />
       {notes
         .filter((note) => note.text.toLowerCase().includes(searchText))
@@ -70,7 +98,7 @@ const NotesList = ({ noteId, handleDeleteNoteList }) => {
             /*id={note.id} text={note.text} date={note.date}*/ {...note}
             handleDeleteNote={deleteNote}
           />
-        ))}{" "}
+        ))}
       <AddNote className="addNote" handleAddNote={addNote} />
     </NotesListContainer>
   );
