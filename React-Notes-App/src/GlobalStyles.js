@@ -110,7 +110,7 @@ video {
   --border-noteList: rgba(79, 65, 123,1);
   --box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  --b-radius1: 5px;
+  --b-radius1: 0px;
   --b-radius2:10px;
       font-size:62.5%;
     }

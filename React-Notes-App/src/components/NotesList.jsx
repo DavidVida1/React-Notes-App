@@ -82,6 +82,7 @@ const NotesList = ({ noteId, handleDeleteNoteList }) => {
           placeholder="Notepad Title"
           onChange={handleChange}
           onKeyDown={handleKeyDown}
+          className="inputTitle"
         />
       ) : (
         <h1 className="title" onDoubleClick={() => setEditEnabled(true)}>
@@ -136,6 +137,10 @@ const NotesListContainer = styled.section`
       border-radius: 100%;
       filter: drop-shadow(0 0 3px var(--color-white));
     }
+  }
+
+  & .inputTitle {
+    margin-top: 20px;
   }
 
   & .title {
