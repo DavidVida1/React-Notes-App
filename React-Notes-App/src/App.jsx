@@ -26,19 +26,33 @@ const App = () => {
     if (savedNoteList) {
       return savedNoteList;
     }
-    return [`note-${nanoid()}`];
+    return [{ id: `note-${nanoid()}`, title: "title.." }];
   });
 
-  /***************Adds NoteList************************/
+  /***************Adds NoteList**************************/
   const addNoteList = () => {
-    setNotesList([...notesList, `note-${nanoid()}`]);
+    setNotesList([...notesList, { id: `note-${nanoid()}`, title: "title" }]);
   };
   /***************Delete NoteList************************/
   const deleteNoteList = (id) => {
     const newNotes = notesList.filter((noteList) => {
-      return noteList !== id;
+      return noteList.id !== id;
     });
     setNotesList(newNotes);
+  };
+
+  /*************** SetNoteList Title************************/
+  /* id comes from 59 Notelist.jsx it's the one being modified and n.id is the 
+id from the previousNotelist id found matching*/
+  const setTitle = (newTitle, id) => {
+    setNotesList((previousNoteList) => {
+      return previousNoteList.map((n) => {
+        if (n.id == id) {
+          n.title = newTitle;
+        }
+        return n;
+      });
+    });
   };
 
   /***************Saving NoteList************************/
@@ -58,7 +72,9 @@ const App = () => {
           {notesList.map((noteList) => (
             <NotesList
               key={noteList}
-              noteId={noteList}
+              noteId={noteList.id}
+              noteTitle={noteList.title}
+              setTitle={setTitle}
               handleDeleteNoteList={deleteNoteList}
             />
           ))}

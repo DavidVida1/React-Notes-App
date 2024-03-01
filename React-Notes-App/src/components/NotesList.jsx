@@ -6,24 +6,25 @@ import SearchBar from "./SearchBar";
 import Note from "./Note";
 import { FaTimes } from "react-icons/fa";
 
-const NotesList = ({ noteId, handleDeleteNoteList }) => {
+const NotesList = ({ noteId, handleDeleteNoteList, noteTitle, setTitle }) => {
   const [searchText, setSearchText] = useState("");
   const [notes, setNotes] = useState(() => {
     const savedNotes = JSON.parse(localStorage.getItem(`note-data-${noteId}`));
     if (savedNotes) {
       return savedNotes;
     }
-
+    const date = new Date();
     return [
       {
         id: nanoid(),
         text: "Add a Note!",
-        date: "04/03/2024",
+        date: date.toLocaleDateString(),
       },
     ];
   });
 
   /***************Adds Note************************/
+
   const addNote = (text) => {
     const date = new Date();
     const newNote = {
@@ -53,11 +54,10 @@ const NotesList = ({ noteId, handleDeleteNoteList }) => {
   }, [notes]);
 
   /*************** Change text title*************/
-  const [editEnabled, setEditEnabled] = useState(true);
-  const [title, setTitle] = useState("");
+  const [editEnabled, setEditEnabled] = useState(false);
 
-  const handleChange = (event) => {
-    setTitle(event.target.value);
+  const handleChange = (e) => {
+    setTitle(e.target.value, noteId);
   };
 
   const handleKeyDown = (e) => {
@@ -66,6 +66,7 @@ const NotesList = ({ noteId, handleDeleteNoteList }) => {
       setEditEnabled(false);
     }
   };
+  /*************** Saving title*****************/
 
   return (
     <NotesListContainer id={noteId}>
@@ -78,7 +79,7 @@ const NotesList = ({ noteId, handleDeleteNoteList }) => {
       {editEnabled ? (
         <input
           type="text"
-          value={title}
+          value={noteTitle}
           placeholder="Notepad Title"
           onChange={handleChange}
           onKeyDown={handleKeyDown}
@@ -86,7 +87,7 @@ const NotesList = ({ noteId, handleDeleteNoteList }) => {
         />
       ) : (
         <h1 className="title" onDoubleClick={() => setEditEnabled(true)}>
-          [{notes.length}]{title}
+          [{notes.length}]{noteTitle}
         </h1>
       )}
 
