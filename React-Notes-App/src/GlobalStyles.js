@@ -96,6 +96,7 @@ video {
 }
 
 :root {
+  --font-size-small:1.2rem;
   --font-size1:1.5rem;
   --font-size2:3rem;
   --color-grey: rgba(60, 68, 76, 0.85);
@@ -106,7 +107,8 @@ video {
   --color-black: rgba(0, 0, 0, 1);
   --color-purple: rgba(79, 65, 123,0.7);
   --color-purple2:rgba(79, 65, 123, 0.35);
-  --border-note: rgba(46, 45, 130,1);
+  --color-green:rgba(173, 219, 204,1);
+  --border-note: rgba(46, 45, 130,0.5);
   --border-noteList: rgba(79, 65, 123,1);
   --box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;

@@ -5,6 +5,7 @@ import { FaPencilAlt } from "react-icons/fa";
 
 const Note = ({ id, text, date, handleDeleteNote, setText }) => {
   const [editEnabledNote, setEditEnabledNote] = useState(false);
+  const noteRef = useRef(null);
 
   const handleChange = (e) => {
     setText(e.target.value, id);
@@ -17,8 +18,31 @@ const Note = ({ id, text, date, handleDeleteNote, setText }) => {
     }
   };
 
+  /*function noteDone() {
+    const element = document.querySelector(`#${id}`);
+    element.classList.toggle("completedNote");
+    console.log("executed");
+  }*/
+
+  /*with the check the className is added only if the box is checked wich avoids probleme
+  if the className is active and checkbox is not*/
+  const noteDone = () => {
+    const noteClassList = document.querySelector(`#myCheck${id}`);
+
+    if (!noteClassList.checked) {
+      noteRef.current.classList.remove("completedNote");
+    } else {
+      noteRef.current.classList.add("completedNote");
+    }
+    console.log("executed");
+  };
+
+  useEffect(() => {
+    noteDone();
+  }, []);
+
   return (
-    <NoteContainer className="note">
+    <NoteContainer ref={noteRef} className="note" id={id}>
       {editEnabledNote ? (
         <input
           type="text"
@@ -35,6 +59,15 @@ const Note = ({ id, text, date, handleDeleteNote, setText }) => {
       <div className="noteFooter">
         <small>{date}</small>
         <div className="noteIcone">
+          <input
+            type="checkbox"
+            id={`myCheck${id}`}
+            onClick={() => {
+              noteDone();
+            }}
+            checked={true}
+          />
+
           <FaPencilAlt
             className="editIcon"
             onClick={() => {
@@ -57,24 +90,9 @@ const NoteContainer = styled.section`
   border-top: 3px solid var(--border-note);
   font-size: var(--font-size1);
 
-  & .noteFooter {
-    font-size: 1rem;
-
-    & .deleteIcon,
-    .editIcon {
-      font-size: var(--font-size1);
-      cursor: pointer;
-      &:hover {
-        filter: drop-shadow(0 0 3px var(--color-white));
-      }
-    }
-
-    & .noteIcone {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 5px;
-    }
+  &.completedNote {
+    background-color: var(--color-green) !important;
+    color: black;
   }
 
   & .noteChanged {
@@ -89,6 +107,40 @@ const NoteContainer = styled.section`
 
     &::placeholder {
       color: var(--color-white);
+    }
+  }
+
+  & .noteFooter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 5px;
+    & small {
+      font-size: var(--font-size-small);
+    }
+    & .noteIcone {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 5px;
+
+      & input {
+        align-self: center;
+        width: 15px;
+        height: 15px;
+        &:hover {
+          filter: drop-shadow(0 0 3px var(--color-white));
+        }
+      }
+
+      & .deleteIcon,
+      .editIcon {
+        font-size: var(--font-size1);
+        cursor: pointer;
+        &:hover {
+          filter: drop-shadow(0 0 3px var(--color-white));
+        }
+      }
     }
   }
 `;
