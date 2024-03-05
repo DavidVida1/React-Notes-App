@@ -26,12 +26,15 @@ const App = () => {
     if (savedNoteList) {
       return savedNoteList;
     }
-    return [{ id: `note-${nanoid()}`, title: "title.." }];
+    return [{ id: `note-${nanoid()}`, title: "title" }];
   });
 
   /***************Adds NoteList**************************/
   const addNoteList = () => {
-    setNotesList([...notesList, { id: `note-${nanoid()}`, title: "title" }]);
+    setNotesList([
+      ...notesList,
+      { id: `note-${nanoid()}`, title: "click here" },
+    ]);
   };
   /***************Delete NoteList************************/
   const deleteNoteList = (id) => {

@@ -66,7 +66,17 @@ const NotesList = ({ noteId, handleDeleteNoteList, noteTitle, setTitle }) => {
       setEditEnabled(false);
     }
   };
-  /*************** Saving title*****************/
+  /*************** EditNotes*****************/
+  const setText = (newText, id) => {
+    setNotes((previousNote) => {
+      return previousNote.map((n) => {
+        if (n.id == id) {
+          n.text = newText;
+        }
+        return n;
+      });
+    });
+  };
 
   return (
     <NotesListContainer id={noteId}>
@@ -79,11 +89,11 @@ const NotesList = ({ noteId, handleDeleteNoteList, noteTitle, setTitle }) => {
       {editEnabled ? (
         <input
           type="text"
-          value={noteTitle}
           placeholder="Notepad Title"
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           className="inputTitle"
+          autoFocus
         />
       ) : (
         <h1 className="title" onDoubleClick={() => setEditEnabled(true)}>
@@ -99,6 +109,7 @@ const NotesList = ({ noteId, handleDeleteNoteList, noteTitle, setTitle }) => {
             key={note.id}
             /*id={note.id} text={note.text} date={note.date}*/ {...note}
             handleDeleteNote={deleteNote}
+            setText={setText}
           />
         ))}
       <AddNote className="addNote" handleAddNote={addNote} />
