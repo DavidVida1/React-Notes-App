@@ -65,7 +65,7 @@ const Note = ({ id, text, date, handleDeleteNote, setText }) => {
             onClick={() => {
               noteDone();
             }}
-            checked={true}
+            /* checked={true}*/
           />
 
           <FaPencilAlt
