@@ -169,7 +169,7 @@ const NotesListContainer = styled.section`
     flex-direction: column;
     background-color: var(--color-purple);
     border-radius: var(--b-radius1);
-    padding: 1rem;
+    padding: 1.5rem 1rem 1.5rem 1rem;
     color: var(--color-white);
     min-height: 50px;
     white-space: pre-wrap;
